@@ -1,0 +1,37 @@
+# Computer Network Protocols
+
+This project is the assignment of CQU cource Computer Network.
+
+Author: Xinkai Hu.
+
+This project implements computer network protocols including TCP, UDP, IPv4, PPP and Ethernet v2. The transparent transmission is also implemented, including byte stuffing and zero-bit stuffing.
+
+Reference book: 计算机网络 (第8版) ISBN: 9787121411748.
+
+Files:
+
+```
+./
+├── README
+├── main.c
+├── src
+│   ├── checksum.h
+│   ├── ethernet_v2.h
+│   ├── ip.h
+│   ├── ppp.h
+│   ├── stuffing.h
+│   ├── tcp.h
+│   ├── udp.h
+│   └── util.h
+└── test
+    ├── test_bit_stuffing.c
+    ├── test_byte_stuffing.c
+    ├── test_ethernet_v2.c
+    ├── test_ip.c
+    ├── test_ppp.c
+    ├── test_tcp.c
+    ├── test_udp.c
+    └── test_util.c
+
+2 directories, 18 files
+```
