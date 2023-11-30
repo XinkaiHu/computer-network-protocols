@@ -21,7 +21,8 @@ int main(void) {
   data_t parsed_src_addr;
   ETHERNET_V2_TYPE parsed_type;
 
-  send_ethernet_v2(original_data, &mac_frame, dest_addr, src_addr, ETHERNET_V2_TYPE_IPv4);
+  send_ethernet_v2(original_data, &mac_frame, dest_addr, src_addr,
+                   ETHERNET_V2_TYPE_IPv4);
   parse_ethernet_v2(mac_frame, &parsed_data, &parsed_desr_addr,
                     &parsed_src_addr, &parsed_type);
 
@@ -29,11 +30,10 @@ int main(void) {
 
   printf("Ethernet v2 Mac frame: %s\nSize: %d\n\n", mac_frame_hex.value,
          mac_frame.size);
-  printf(
-      "Parsed data: %s\nSize: %d\nDestination address: %s\nSource address: "
-      "%s\nType: %d\n\n",
-      parsed_data.value, parsed_data.size, parsed_desr_addr.value,
-      parsed_src_addr.value, parsed_type);
+  printf("Parsed data: %s\nSize: %d\nDestination address: %s\nSource address: "
+         "%s\nType: %d\n\n",
+         parsed_data.value, parsed_data.size, parsed_desr_addr.value,
+         parsed_src_addr.value, parsed_type);
 
   free(mac_frame.value);
   free(mac_frame_hex.value);

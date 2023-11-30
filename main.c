@@ -117,7 +117,8 @@ int main(void) {
 
   original_data.value =
       "another test message which\t is processed into \aUDP datagram,\n IPv4 "
-      "datagram, PPP frame\n and stuffed by zero-\bbit. After those works,\n it "
+      "datagram, PPP frame\n and stuffed by zero-\bbit. After those works,\n "
+      "it "
       "will be parsed into its\n\t original shape. Hope a good luck.\n\n";
   original_data.size = 199;
 

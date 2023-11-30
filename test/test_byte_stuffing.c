@@ -6,9 +6,8 @@
 #include "../src/util.h"
 
 int main(void) {
-  data_t original_data = {.value =
-                              "a simple test message for byte stuffing data",
-                          .size = 48};
+  data_t original_data = {
+      .value = "a simple test message for byte stuffing data", .size = 45};
   PPP_PROTOCOL protocol = PPP_PROTOCOL_NCD;
 
   data_t ppp_frame;

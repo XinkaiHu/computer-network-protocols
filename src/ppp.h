@@ -38,7 +38,7 @@ void send_ppp(data_t const input, data_t* output, PPP_PROTOCOL const protocol) {
       assert(0);
   }
   memcpy(output->value + 5, input.value, input.size);
-  *(uint16_t*)(output->value + (5 + input.size)) = crc16(input);
+  *(uint16_t*)(output->value + (5 + input.size)) = crc16(*output, input.size + 5);
   output->value[7 + input.size] = 0X7E;
 }
 
@@ -66,5 +66,5 @@ void parse_ppp(data_t const input, data_t* output, PPP_PROTOCOL* protocol) {
 
   memcpy(output->value, input.value + 5, output->size);
 
-  assert(*(uint16_t*)(input.value + (5 + output->size)) == crc16(*output));
+  assert(*(uint16_t*)(input.value + (5 + output->size)) == crc16(input, output->size + 5));
 }
