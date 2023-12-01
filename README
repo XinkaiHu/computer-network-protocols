@@ -2,7 +2,7 @@
 
 This project is the assignment of CQU cource Computer Network.
 
-Author: Xinkai Hu.
+Author: Xinkai Hu, Kuanyu Li.
 
 This project implements computer network protocols including TCP, UDP, IPv4, PPP and Ethernet v2. The transparent transmission is also implemented, including byte stuffing and zero-bit stuffing.
 

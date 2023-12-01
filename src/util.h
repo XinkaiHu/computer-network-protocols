@@ -13,7 +13,7 @@ typedef struct data_t {
 } data_t;
 
 void char_to_binary(data_t const input, data_t* output) {
-  output->size = input.size * 8;
+  output->size = input.size << 3;
   output->value = (uint8_t*)malloc(output->size + 1);
 
   for (int i = 0; i < input.size; ++i) {
@@ -26,7 +26,7 @@ void char_to_binary(data_t const input, data_t* output) {
 
 void binary_to_char(data_t const input, data_t* output) {
   assert((input.size & 0X7) == 0);
-  output->size = (input.size - 1) / 8 + 1;
+  output->size = input.size >> 3;
   output->value = (uint8_t*)malloc(output->size);
 
   for (int i = 0; i < output->size; ++i) {
@@ -39,7 +39,7 @@ void binary_to_char(data_t const input, data_t* output) {
 
 void char_to_hex(data_t const input, data_t* output) {
   uint8_t const hex_table[] = "0123456789ABCDEF";
-  output->size = input.size * 2;
+  output->size = input.size << 1;
   output->value = (uint8_t*)malloc(output->size + 1);
 
   for (int i = 0; i < input.size; ++i) {

@@ -154,6 +154,7 @@ void parse_bit_stuffing(data_t const input, data_t* output) {
   }
 
   binary_to_char(data_bit, output);
+  assert(output->value[0] == 0X7E && output->value[output->size - 1] == 0X7E);
 
   free(data_bit.value);
 }

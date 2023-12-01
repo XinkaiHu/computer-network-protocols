@@ -11,11 +11,10 @@ void send_tcp(data_t const input, data_t* output, uint16_t const src_port,
   assert(optional.size <= 40);
   assert((URG & 0XFE) == 0 && (ACK & 0XFE) == 0 && (PSH & 0XFE) == 0 &&
          (RST & 0XFE) == 0 && (SYN & 0XFE) == 0 && (FIN & 0XFE) == 0);
-  assert(optional.size <= 40);
 
   data_t tmp_header;
-
   uint32_t filling_byte;
+
   filling_byte = (4 - (optional.size & 0X3)) % 4;
   uint8_t header_byte = 20 + optional.size + filling_byte;
   output->size = header_byte + input.size;

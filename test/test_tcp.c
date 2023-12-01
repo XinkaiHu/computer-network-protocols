@@ -13,8 +13,8 @@ int main(void) {
   uint16_t src_port = 0X4919;
   uint16_t dest_port = 0X1234;
   uint32_t id = 0X23333333;
-  uint32_t ack_value = 0X66665432;
-  uint8_t URG = 1;
+  uint32_t ack_value = 0X20000000;
+  uint8_t URG = 0;
   uint8_t ACK = 1;
   uint8_t PSH = 0;
   uint8_t RST = 1;
@@ -57,8 +57,8 @@ int main(void) {
   printf("TCP datagram: %s\nSize: %d\n\n", tcp_datagram_hex.value,
          tcp_datagram.size);
   printf(
-      "Parsed data: %s\nSize: %d\nSource port: %x\nDestination port: %xID: "
-      "%d\nACK value: %d\nHeader byte: %d\nURG: %d\nACK: %d\nPSH: %d\nRST: "
+      "Parsed data: %s\nSize: %d\nSource port: %x\nDestination port: %x\nID: "
+      "%x\nACK value: %x\nHeader byte: %d\nURG: %d\nACK: %d\nPSH: %d\nRST: "
       "%d\nSYN: %d\nFIN: %d\nWindow: %d\nURG pointer: %x\nOptional data: "
       "%s\n\n",
       parsed_data.value, parsed_data.size, parsed_src_port, parsed_dest_port,

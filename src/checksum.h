@@ -30,13 +30,13 @@ uint16_t crc16(data_t const input, uint16_t const n) {
   return crc_value;
 }
 
-uint32_t crc32(data_t const input) {
+uint32_t crc32(data_t const input, uint16_t const n) {
   uint8_t i;
   uint32_t crc_value;
   uint16_t size;
   uint8_t* value;
 
-  size = input.size;
+  size = n;
   value = input.value;
 
   crc_value = 0XFFFFFFFF;

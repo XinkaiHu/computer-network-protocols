@@ -85,11 +85,12 @@ void send_ip_v4(data_t const input, data_t* output, uint8_t const diff_serv,
     default:
       assert(0);
   }
-  *(uint16_t*)(output->value + 10) = 0X0000;
   *(uint32_t*)(output->value + 12) = src_addr;
   *(uint32_t*)(output->value + 16) = dest_addr;
   memcpy(output->value + 20, optional.value, optional.size);
-  memset(output->value + (20 + optional.size), 0X00, filling_byte);
+  memset(output->value + (20 + optional.size), 0, filling_byte);
+
+  *(uint16_t*)(output->value + 10) = 0X0000;
   *(uint16_t*)(output->value + 10) = checksum_ip(*output, header_byte);
   memcpy(output->value + header_byte, input.value, input.size);
 }
